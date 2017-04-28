@@ -1,0 +1,63 @@
+name:                HaRay
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/HaRay#readme
+license:             BSD3
+license-file:        LICENSE
+author:              FpPatchy
+maintainer:          tylerblugandersen@icloud.com
+copyright:           2017 FpPatchy
+category:            Render
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Graphics.Rendering.HaRay
+                     , Graphics.Rendering.HaRay.Base
+                     , Graphics.Rendering.HaRay.Base.Vector3D
+                     , Graphics.Rendering.HaRay.Base.Color
+                     , Graphics.Rendering.HaRay.Base.Ray
+                     , Graphics.Rendering.HaRay.Base.Transform
+                     , Graphics.Rendering.HaRay.Base.Types
+                     , Graphics.Rendering.HaRay.Geometry
+                     , Graphics.Rendering.HaRay.Geometry.Primitives
+                     , Graphics.Rendering.HaRay.Camera
+                     , Graphics.Rendering.HaRay.Entity
+                     , Graphics.Rendering.HaRay.Light
+                     , Graphics.Rendering.HaRay.Material
+                     , Graphics.Rendering.HaRay.Scene
+  build-depends:       base >= 4.7 && < 5
+                     , JuicyPixels
+  default-language:    Haskell2010
+  default-extensions:  RecordWildCards
+                     , Strict
+                     , StrictData
+                     , DuplicateRecordFields
+  ghc-options:         -O2
+
+executable HaRay-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2
+  build-depends:       base
+                     , HaRay
+  default-language:    Haskell2010
+  default-extensions:  RecordWildCards
+                     , Strict
+                     , StrictData
+                     , DuplicateRecordFields
+
+test-suite HaRay-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , HaRay
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/HaRay
